@@ -3,21 +3,21 @@ package pack;
 import javax.management.monitor.Monitor;
 
 public class Hilo implements Runnable{
-	private int x, seg;
+	private int x, miliSeg;
 
 	//public static Monitor monitor;
 	
 //CONSTRUCTOR
-	public Hilo(int x, int seg) {
+	public Hilo(int x, int miliSeg) {
 		this.x = x;
-		this.seg = seg;
+		this.miliSeg = miliSeg;
 	}
 
 	@Override
 	public void run() {
 		try {			
-			System.out.println("Soy hilo " + x + " y me pongo a dormir " + seg + " segundos.");
-			Thread.sleep(seg);
+			System.out.println("Soy hilo " + x + " y me pongo a dormir " + (miliSeg / 1000) + " segundos.");
+			Thread.sleep(miliSeg);
 		} catch (InterruptedException e) {			
 			e.printStackTrace();
 		}
